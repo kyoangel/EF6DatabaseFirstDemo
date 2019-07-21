@@ -41,6 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,12 +51,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseFirstDemo.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseFirstDemo.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseFirstDemo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseFirstDemo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseFirstDemo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DatabaseFirstDemo.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>DatabaseFirstDemo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="DatabaseFirstDemo.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DatabaseFirstDemo.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DatabaseFirstDemo.edmx.diagram">
+      <DependentUpon>DatabaseFirstDemo.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DatabaseFirstDemo.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseFirstDemo.edmx</DependentUpon>
+      <LastGenOutput>DatabaseFirstDemo.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DatabaseFirstDemo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DatabaseFirstDemo.edmx</DependentUpon>
+      <LastGenOutput>DatabaseFirstDemo.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
